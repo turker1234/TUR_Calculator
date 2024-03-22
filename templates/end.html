@@ -33,8 +33,12 @@
         <img class="rez__img" src="../../static/img/planet_bad.svg" alt="">
         <span>Sonucunuz {{result}} kWh</span>
         <span>Evınızın enerji verimliliği ortalamadan düşüktür!</span>
+        {%elif result >= 300%}
         {%endif%}
     </div>
+    
+
+    </div>   
     {% endblock %}
   </main>
   <footer>

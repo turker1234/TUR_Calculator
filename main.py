@@ -8,7 +8,10 @@ def result_calculate(size, lights, device):
     # Elektrikli cihazların enerji tüketimini hesaplamaya olanak tanıyan değişkenler
     home_coef = 100
     light_coef = 0.04
-    devices_coef = 5   
+    devices_coef = 5 
+    if device == 1:
+        return size * 40 + lights * light_coef + device * devices_coef
+
     return size * home_coef + lights * light_coef + device * devices_coef 
 
 # İlk sayfa
@@ -36,10 +39,10 @@ def electronics(size, lights):
 # Hesaplama
 @app.route('/<size>/<lights>/<device>')
 def end(size, lights, device):
-    return render_template('end.html', 
+    return render_template('end.html',
                             result=result_calculate(int(size),
                                                     int(lights), 
                                                     int(device)
-                                                    )
+                                                    )   
                         )
 app.run(debug=True)
